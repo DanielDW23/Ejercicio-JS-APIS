@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
+  <body>
+    <div class="select_container">
+      <select id="changejs">
+        <option value="api_3.js" data-link="https://disneyapi.dev/" selected>
+          API de Disney
+        </option>
+        <option value="api.js" data-link="https://www.fbi.gov/wanted/api">
+          API del FBI (FETCH)
+        </option>
+        <option value="api_2.js" data-link="https://www.fbi.gov/wanted/api">
+          API del FBI (Async/await)
+        </option>
+      </select>
+      <p id="web_select"></p>
+    </div>
+
     <div class="container">
-        <!-- <div class="card">
+      <h2 class="error_api"></h2>
+      <!-- <div class="card">
             <div class="imagen">
                 <img src='https://www.fbi.gov/wanted/vicap/missing-persons/jesus-de-la-cruz---lynn-massachusetts/@@images/image' alt="">
             </div>
@@ -21,8 +36,45 @@
         </div> -->
     </div>
 
-    <!-- CAMBIAR EL NOMBRE DEL SCRIPT QUE LLAMA A LA API, PARA PROBAR LOS DIFERENTES SCRIPTS (api_2.js, api_3.js)-->
-    <script src="api_3.js"></script>
-</body>
+    <script type="text/javascript">
+          document.getElementById('changejs').addEventListener('change', function () {
 
+              // console.log(change)
+
+              container = document.querySelector(".container")
+              if (this.value === "api_3.js") {
+          Array.from(container.children).forEach(child => {
+              if (!child.classList.contains('error_api')) {
+                  container.removeChild(child);
+              }
+          });
+      } else {
+          container.innerHTML = "";
+      }
+
+              let file = this.value;
+              let oldScript = document.getElementById('jsfile');
+              let newScript = document.createElement('script');
+              newScript.src = file;
+              newScript.id = 'jsfile';
+              oldScript.parentNode.replaceChild(newScript, oldScript);
+
+              let web_select = document.getElementById('web_select');
+              let link = this.options[this.selectedIndex].dataset.link;
+              if (link) {
+
+                  web_select.innerHTML = '';
+
+                  let web = document.createElement('a');
+                  web.href=link;
+                  web.target="_aboutBlank";
+                  web.textContent="Link Web API";
+                  web_select.appendChild(web);
+
+              }
+          });
+    </script>
+
+    <script id="jsfile" src="api_3.js"></script>
+  </body>
 </html>

@@ -2,16 +2,20 @@ function getValoresApi(pagina=1) {
     fetch('https://api.disneyapi.dev/character?page='+ pagina )
         .then(response => response.json())
         .then(datos => {
-            console.log(datos);
+            // console.log(datos);
             
             dibujarCard(datos.data);
         })
-        // .catch(() => console.log("Ha habido un error trayendo los datos"))
+        .catch(() => {
+            let error_api = document.querySelector(".error_api");
+            error_api.innerHTML = "ERROR DEL SERVIDOR (https://api.disneyapi.dev) AL INTENTAR CARGAR LA API";
+        })
 
 }
 
 
 function dibujarCard(DisneyCard) {
+
 
     for (let i = 0; i < DisneyCard.length; i++) {
 
@@ -42,7 +46,7 @@ function dibujarCard(DisneyCard) {
     }
 }
 
-let paginaActual = 0
+// let paginaActual = 0
 
 // RECARGA AUTOMÁTICA DE NUEVOS ELEMENTOS (PAGINAS) 
 

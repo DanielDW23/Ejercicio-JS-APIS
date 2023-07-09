@@ -4,11 +4,12 @@ function getValoresApi(pagina = 1) {
     fetch('https://api.fbi.gov/wanted/v1/list?page=' + pagina)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             // data.items.forEach((person) => {
             //     addPersonaje(person);
             //     // console.log(listCrimenes);
             // })
+            
             dibujarCard(data.items);
         })
         .catch(() => console.log("Ha habido un error trayendo los datos"))
@@ -51,7 +52,7 @@ function dibujarCard(listCrimenes) {
     }
 }
 
-let paginaActual = 0
+// let paginaActual = 0
 
 // RECARGA AUTOMÁTICA DE NUEVOS ELEMENTOS (PAGINAS) 
 

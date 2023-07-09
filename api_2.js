@@ -7,7 +7,7 @@ async function showFbi(pagina = 1) {
         if (response.ok) { // si el HTTP-status es 200-299
             // obtener cuerpo de la respuesta (método debajo)
             let user = await response.json();
-            console.log(user)
+            // console.log(user)
             // user.items.forEach((person) => {
             // addPersonaje(person);
             // console.log(listCrimenes);
@@ -55,7 +55,7 @@ async function showFbi(pagina = 1) {
             }
         }
 
-        let paginaActual = 0
+        // let paginaActual = 0
 
         // RECARGA AUTOMÁTICA DE NUEVOS ELEMENTOS (PAGINAS) 
 
