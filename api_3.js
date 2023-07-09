@@ -7,8 +7,7 @@ function getValoresApi(pagina=1) {
             dibujarCard(datos.data);
         })
         .catch(() => {
-            let error_api = document.querySelector(".error_api");
-            error_api.innerHTML = "ERROR DEL SERVIDOR (https://api.disneyapi.dev) AL INTENTAR CARGAR LA API";
+            alert("ERROR DEL SERVIDOR (https://api.disneyapi.dev) AL INTENTAR CARGAR LA API");
         })
 
 }
