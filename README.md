@@ -1,5 +1,7 @@
 # Ejercicio-JS-APIS
 
+https://danieldw23.github.io/Ejercicio-JS-APIS/
+
 ### Ejercicio con JavaScript para conocer el uso de APIS con FETCH y Async/await para obtener información, hay tres archivos JS, `api.js`carga con FETCH la API del FBI [API FBI](https://www.fbi.gov/wanted/api), `api_2.js` carga la misma API con Async/await y `api_3.js` carga con FETCH la API de Disney [API DISNEY](https://disneyapi.dev/).
 
 <p align="center" >
